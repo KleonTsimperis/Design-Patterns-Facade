@@ -8,7 +8,7 @@
  * in some way
  */
 
- class PlumbingSystem {
+class PlumbingSystem {
   // low level access to plumbing system
   setPressure(value) {}
   turnOn() {}
@@ -44,3 +44,38 @@ class House {
 const house = new House();
 house.turnOnSystems();
 house.shutDown();
+
+/************/
+
+class Mortgage {
+  constructor(name) {
+    this.name = name;
+  }
+
+  applyFor(amount) {
+    if (!new Background().hasBackground()) {
+      return `Denied mortgage for the ${amount}`;
+    }
+
+    if (new Credit().isNegative()) {
+      return `Denied mortgage for the ${amount}`;
+    }
+
+    return `Granted the amount ${amount}`;
+  }
+}
+
+class Background {
+  hasBackground(valid = true) {
+    return valid;
+  }
+}
+
+class Credit {
+  isNegative() {
+    return false;
+  }
+}
+
+const mortgage = new Mortgage('john');
+console.log(mortgage.applyFor(100));
